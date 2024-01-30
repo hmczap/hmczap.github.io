@@ -1,0 +1,104 @@
+
+/*  TABLE OF CONTENTS
+    1. Global Styles
+    2. Page Styles (header, nav, body, footer)
+    3. Component Styles (buttons, images)
+    4. Mobile Styles
+*/
+
+:root {
+    --white: #fff;
+    --black: #000;
+
+    --blue-violet-ultralight: #a88bc6;
+    --blue-violet-light: #774aa4;
+    --blue-violet: #4f2c73;
+    --blue-violet-dark: #351c4f;
+    --blue-violet-ultradark: #140a1f;
+}
+
+/*********************** 1. GLOBAL STYLES **********************************/
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+/*********************** 2. PAGE STYLES **********************************/
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    background: var(--blue-violet-ultradark);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    font-weight: 300;
+    flex-basis: 10%;
+    max-height: 20%;
+}
+
+.main {
+    width: calc(1440px * 0.25);
+    max-height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 auto;
+    padding: 40px 20px;
+    border: 1px solid var(--white);
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 15px;
+}
+
+.main .image-container {
+    width: 70%;
+    position: relative;
+}
+
+.main .image-container svg {
+    margin-top: 75px;
+    width: 255px;
+    fill: var(--blue-violet-ultralight);
+    height: auto;
+}
+
+
+.main h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 50px;
+    margin-top: 10px;
+}
+
+.main p {
+    font-weight: 400;
+}
+
+footer {
+    margin-bottom: 0px;
+    font-weight: 300;
+    flex-basis: 10%;
+    max-height: 20%;
+}
+
+/*********************** 3. COMPONENT STYLES **********************************/
+
+nav a, footer a {
+    color: var(--white);
+}
+
+
+
+
+
+/*********************** 4. MOBILE STYLES **********************************/
