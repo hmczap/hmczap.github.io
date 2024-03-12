@@ -7,15 +7,28 @@
 */
 
 :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  
     --white: #fff;
     --black: #000;
-
+  
     --blue-violet-ultralight: #a88bc6;
     --blue-violet-light: #774aa4;
     --blue-violet: #4f2c73;
     --blue-violet-dark: #351c4f;
     --blue-violet-ultradark: #140a1f;
-}
+  }
 
 /*********************** 1. GLOBAL STYLES **********************************/
 
@@ -28,16 +41,20 @@ html {
 /*********************** 2. PAGE STYLES **********************************/
 
 body {
-    height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
+    place-items: center;
+    width: 100vw;
+    background:radial-gradient(#292929, #000000);
+    overflow: hidden;
+    height: 100vh;
     gap: 15px;
     align-items: center;
     justify-content: center;
-    background: var(--blue-violet-ultradark);
     color: white;
     font-family: 'Roboto', sans-serif;
-}
+  }
 
 header {
     font-weight: 300;
@@ -67,9 +84,10 @@ header {
 
 .main .image-container svg {
     margin-top: 75px;
-    width: 255px;
+    width: calc(400px / 2);
     fill: var(--blue-violet-ultralight);
     height: auto;
+    margin-left: 30px;
 }
 
 
@@ -93,6 +111,21 @@ footer {
 
 /*********************** 3. COMPONENT STYLES **********************************/
 
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+  }
+
+a {
+    font-weight: 500;
+    color: #646cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #535bf2;
+}
+
 nav a, footer a {
     color: var(--white);
 }
@@ -100,5 +133,17 @@ nav a, footer a {
 
 
 
+@media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
 
 /*********************** 4. MOBILE STYLES **********************************/
