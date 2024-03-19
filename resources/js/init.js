@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import Stats from 'three/examples/jsm/libs/stats.module';
+//import Stats from 'three/examples/jsm/libs/stats.module';
 import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass';
 import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
 import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass'
@@ -13,7 +13,7 @@ export class Init {
         this.farPlane = 2000;
     
         this.scene = undefined;
-        this.stats = undefined;
+        //this.stats = undefined;
         this.camera = undefined;
         this.controls = undefined;
         this.renderer = undefined;
@@ -49,8 +49,8 @@ export class Init {
 
         // STATS, CONTROLS
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-        this.stats = Stats();
-        document.body.appendChild(this.stats.dom);
+        //this.stats = Stats();
+        //document.body.appendChild(this.stats.dom);
 
         // LIGHTING
         // note for future self: try the contre-jour style of lighting
@@ -79,7 +79,7 @@ export class Init {
     // ANIMATION
     animate() {
         window.requestAnimationFrame(this.animate.bind(this));
-        this.stats.update();
+        //this.stats.update();
         this.controls.update();
         this.render();
     };
