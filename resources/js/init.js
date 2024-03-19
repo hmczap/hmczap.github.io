@@ -1,5 +1,9 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import Stats from 'three/examples/jsm/libs/stats.module';
+import {RenderPass} from 'three/examples/jsm/postprocessing/RenderPass';
+import {EffectComposer} from 'three/examples/jsm/postprocessing/EffectComposer';
+import {UnrealBloomPass} from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 
 export class Init {
     constructor(canvasId) {
@@ -24,8 +28,10 @@ export class Init {
     initialize(){
         this.camera = new THREE.PerspectiveCamera(this.fov, 
             window.innerWidth / window.innerHeight, 1, 1000);
+        //this.camera.position.z = 96;
         this.camera.position.set(0,0,90);
         this.camera.focus = 20.0;
+        //this.camera.lookAt(0,0,0);
 
         this.clock = new THREE.Clock();
         this.scene = new THREE.Scene();
@@ -37,8 +43,14 @@ export class Init {
         this.renderer.setSize(window.innerWidth, window.innerHeight, window.innerHeight);
         canvas.appendChild(this.renderer.domElement);
 
+        // POSTPROCESSING
+        this.renderScene = new RenderPass(this.scene, this.camera);
+        this.composer = new EffectComposer(this.renderer)
+
         // STATS, CONTROLS
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+        this.stats = Stats();
+        document.body.appendChild(this.stats.dom);
 
         // LIGHTING
         // note for future self: try the contre-jour style of lighting
@@ -77,10 +89,25 @@ export class Init {
         this.composer.render();
     };
 
+    postProcess(){
+        this.composer.addPass(this.renderScene);
+
+        const bloomPass = new UnrealBloomPass(
+            new THREE.Vector2(window.innerWidth, window.innerHeight),
+            1.6, 0.1, 0.1
+        );
+        this.composer.addPass(bloomPass);
+        bloomPass.radius = 0.8;
+        bloomPass.threshold = 0.1;
+
+        // tone mapping
+        this.renderer.toneMapping = THREE.LinearToneMapping;
+        this.renderer.toneMappingExposure = 1.5;
+    };
+
     onWindowResize(){
         this.camera.aspect = window.innerWidth/window.innerHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     };
 }
-
