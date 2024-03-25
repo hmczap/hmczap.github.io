@@ -1,5 +1,5 @@
 import '../css/style.css'
-import * as THREE from 'three';
+import * as THREE from './three';
 
 import {Init as init} from './init.js'
 
