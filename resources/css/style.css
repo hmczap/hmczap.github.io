@@ -76,7 +76,7 @@ header {
     position: absolute;
     color: var(--black);
     border-radius: 15px;
-    z-index = 20;
+    z-index: 20;
 }
 
 .main .image-container {
