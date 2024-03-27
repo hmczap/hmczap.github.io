@@ -71,10 +71,12 @@ header {
     justify-content: center;
     flex: 1 auto;
     padding: 40px 20px;
-    border: 1px solid var(--white);
-    background-color: var(--white);
+    border: 1px solid var(--black);
+    background-color: var(--black);
     position: absolute;
-    color: var(--black);
+    background: black;
+    color: white;
+    mix-blend-mode: multiply;
     border-radius: 15px;
     z-index: 20;
 }
